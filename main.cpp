@@ -174,7 +174,7 @@ int main() {
                     "                    Lucas dos Santos Luckow\n\n"
                     "Professor:          Prof. Rafael Ballotin Martins\n"
                     "Matéria:            Algoritmos e Programação\n"
-                    "Maio/2023\n\n";
+                    "Junho/2023\n\n";
             cout << "Digite qualquer tecla para voltar ao menu\n";
             cin.ignore();
             cin.get();
