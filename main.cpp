@@ -6,12 +6,18 @@
 #define TAM 9
 using namespace std;
 
+#ifdef _WIN32
+    #define CLEAR "cls"
+#else
+    #define CLEAR "clear"
+#endif
+
 int main() {
-  setlocale(LC_ALL, "Portuguese");
+  setlocale(LC_ALL, "pt_BR.UTF-8");
   srand(time(NULL));
 
   int menu, i, j, aleatorio, ganhou;
-  int cont = 0, il; // cont é o contador de jogadas e il é varíavel utilizada para o índice de linhas da matriz jogo
+  int cont = 0, il; // cont é o contador de jogadas // il é varíavel utilizada para o índice de linhas da matriz jogo
   int aux, auxi, auxj; // Variáveis utilizadas na hora de criar a matriz jogo e depois para jogar o sudoku
 
   int principal[TAM][TAM] = {
@@ -34,7 +40,7 @@ int main() {
 
     switch (menu) {
     case 1: // Jogar
-      system("clear");
+      system(CLEAR);
 
       aleatorio = rand() % 4 + 1; // Gera um número pseudo-aleatório de 1 a 4 para definir a matriz gabarito
 
@@ -114,7 +120,7 @@ int main() {
         cin >> auxj;
         cout << "Digite o valor que quer preencher...";
         cin >> aux;
-        system("clear");
+        system(CLEAR);
         
         if (aux == gabarito[auxi - 1][auxj - 1] and jogo[auxi - 1][auxj - 1] == 0) { // Confere se o valor é válido em posição não preenchida
           jogo[auxi - 1][auxj - 1] = aux;
@@ -136,7 +142,7 @@ int main() {
         
       } while (ganhou > 0);
 
-      system("clear");
+      system(CLEAR);
       cout << "                                                 ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗  ██╗██╗██╗\n"
               "                                                 ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║  ██║██║██║\n"
               "                                                  ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║  ██║██║██║\n"
@@ -147,12 +153,13 @@ int main() {
       cout << "Você precisou de " << cont << " jogadas para completar o sudoku.\n";
       cout << "Digite qualquer tecla para voltar ao menu...\n";
       cont = 0; // Zera o contador de jogadas
-      system("read 0 -p");
-      system("clear");
+      cin.ignore();
+      cin.get();
+      system(CLEAR);
       break;
 
     case 2: // Sobre
-      system("clear");
+      system(CLEAR);
       cout << "\nDesenvolvedores:    Daniel Henrique da Silva\n"
               "                    Gabriel Henrique da Silva\n"
               "                    Jorge Luiz Siemann Pereira\n"
@@ -161,15 +168,16 @@ int main() {
               "Matéria:            Algoritmos e Programação\n"
               "Maio/2023\n\n";
       cout << "Digite qualquer tecla para voltar ao menu\n";
-      system("read 0 -p");
-      system("clear");
+      cin.ignore();
+      cin.get();
+      system(CLEAR);
       break;
 
     case 3: // Sair
       break;
     } // Fecha o switch
 
-    system("clear"); // Limpa tudo antes de voltar ao menu
+    system(CLEAR); // Limpa tudo antes de voltar ao menu
   } while (menu != 3); // Fecha o loop do jogo
   return 0;
 }
