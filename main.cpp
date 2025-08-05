@@ -8,12 +8,14 @@ using namespace std;
 
 #ifdef _WIN32
     #define CLEAR "cls"
-    system("chcp 65001 > nul"); 
 #else
     #define CLEAR "clear"
 #endif
 
 int main() {
+    #ifdef _WIN32
+        system("chcp 65001 > nul"); // Para suportar acentos no terminal do Windows
+    #endif
     setlocale(LC_ALL, "pt_BR.UTF-8");
     srand(time(NULL));
 
