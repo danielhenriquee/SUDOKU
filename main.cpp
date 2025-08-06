@@ -107,7 +107,7 @@ int main() {
                         if (j % 3 == 0) { // Print this row after the 3rd and 6th row of the matrix
                             cout << "║"; 
                         }
-                        if (jogo[i][j] == 0 && j != 8) { // If the value is 0, print empty with space after
+                        if (game[i][j] == 0 && j != 8) { // If the value is 0, print empty with space after
                             cout << "  ";
                         } else if (game[i][j] == 0 && j == 8) { // If the value is 0 in the last column, print empty with no space after it
                             cout << " ";
@@ -142,7 +142,7 @@ int main() {
                     cout << "This position has already been filled!\n\n";
                 } else if (value < 1 || value > 9) { // Check if the value is invalid
                     cout << "You entered an invalid value! Please enter a natural number from 1 to 9.\n\n";
-                } else if (game != key[inputRow - 1][inputCol - 1] && game[inputRow - 1][inputCol - 1] == 0) { // Check if the value is incorrect
+                } else if (value != key[inputRow - 1][inputCol - 1] && game[inputRow - 1][inputCol - 1] == 0) { // Check if the value is incorrect
                     cout << "You entered an incorrect value!\n\n";
                 }
             
@@ -158,9 +158,9 @@ int main() {
                     "                                                    ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║  ██╗██╗██╗\n"
                     "                                                    ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝╚═╝\n\n\n\n";
     
-            cout << "You needed " << cont << " moves to complete the sudoku.\n";
+            cout << "You needed " << counter << " moves to complete the sudoku.\n";
             cout << "Type any character to return to the menu...";
-            cont = 0; // Reset move counter
+            counter = 0; // Reset move counter
             cin.ignore();
             cin.get();
             system(CLEAR);
